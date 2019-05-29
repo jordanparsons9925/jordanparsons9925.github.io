@@ -1,6 +1,6 @@
 # jparsons.github.io
 repository for my memory game
-[click here to play!](index.html)
+[click here to play!](jordanparsons9925.github.io)
 
 UP NEXT:
 
