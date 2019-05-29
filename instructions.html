@@ -5,7 +5,6 @@
     <title>Symbol Memory 2!</title>
     <link rel="stylesheet" href="instruct.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="toGame.js"></script>
 </head>
 <body>
     <main>
@@ -15,7 +14,17 @@
             <h2>-First, two symbols will be flashed on your screen in a specific order.</h2>
             <h2>-You will have to select the symbols in the order you saw in order to progress.</h2>
             <h2>-Every level, the speed and number of symbols may increase, so make sure you pay attention!</h2>
+            
         </div>
     </main>
+    <footer>
+        <h2 id="startMessage">Click Anywhere to Continue!</h2>
+        <script>
+            var waitForFinish = setTimeout(function() {
+                document.getElementById("startMessage").style.animationName = "blinkingMsg";
+                window.onclick = function() { window.location.href = "game.html"; };
+            }, 2000);
+        </script>
+    </footer>
 </body>
 </html>
