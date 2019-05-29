@@ -1,2 +1,2 @@
 # jparsons.github.io
-class repo
+repository for my memory game

@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Matura MT Script';
+    src: url('MATURASC.TTF') format('truetype');
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+#titleScreen {
+    display: block;
+    animation-duration: 2.5s;
+    animation-name: titlefade;
+    opacity: 0;
+}
+
+@keyframes titlefade {
+    from {
+        opacity: 0;
+    }
+
+    67% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+#titleScreen h1 {
+    display: block;
+    font-family: Matura MT Script;
+    font-size: 1000%;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+#titleScreen h2 {
+    display: block;
+    font-family: Matura MT Script;
+    font-size: 500%;
+    text-align: center;
+    padding-top: 200px;
+    width: 100%;
+    margin: 0 auto;
+}
+#titleScreen img {
+    display: block;
+    margin: 0 auto;
+}

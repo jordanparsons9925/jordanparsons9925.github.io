@@ -1,0 +1,1 @@
+var nextPage = setTimeout(function(){ window.location.href = "instructions.html"; }, 2200);
