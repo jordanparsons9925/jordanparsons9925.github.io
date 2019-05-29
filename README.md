@@ -1,5 +1,6 @@
 # jparsons.github.io
 repository for my memory game
+[click here to play!](index.html)
 
 UP NEXT:
 
