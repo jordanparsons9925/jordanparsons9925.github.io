@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Matura MT Script';
-    src: url('MATURASC.TTF') format('truetype');
+    src: url('../fonts/MATURASC.TTF') format('truetype');
 }
 * {
     margin: 0;
