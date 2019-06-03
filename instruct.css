@@ -66,8 +66,8 @@
     display: block;
     font-family: Arial, Helvetica, sans-serif;
     animation-duration: 0.5s;
-    animation-iteration-count: infinite;
     animation-direction: alternate;
+    animation-iteration-count: infinite;
     font-size: 300%;
     text-align: center;
     margin-top: 100px;
