@@ -1,4 +1,5 @@
-// code for updating scores
+// code for updating scores, taken straight from the JSONBin website
+// www.jsonbin.io
 let req = new XMLHttpRequest();
 
 req.onreadystatechange = () => {

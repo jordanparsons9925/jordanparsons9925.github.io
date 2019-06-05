@@ -6,13 +6,13 @@
 @keyframes imageShow {
     from {
         opacity: 0;
-        width: 348px;
+        width: 400px;
         margin-top: 200px;
     }
 
     50% {
         opacity: 1;
-        width: 348px;
+        width: 400px;
         margin-top: 200px;
     }
 
@@ -23,12 +23,12 @@
     }
 }
 
-#memoryPortion img {
+#memoryPortion #displayImage {
     display: block;
     margin: 0 auto;
     margin-top: 200px;
-    width: 348px;
     opacity: 0;
+    width: 400px;
     animation-name: imageShow;
-    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
