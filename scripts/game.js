@@ -1,11 +1,12 @@
 var lose = false; // is the user in a state of loss?
 var animateSpeed; // speed at which the animation will move
-var currentSpeed = 2; // the current game speed based on round progression
+var currentSpeed = 0.1; // the current game speed based on round progression
 var numSymbols = 3; // the number of symbols in the sequence
 var currentRound = 1; // the current round the user is on
 var totalSymbols = 4; // the total number of unique symbols ingame, can be adjusted
                       // to add more symbols beyond the main four
 var playerScore = 0; // the score that the player has
+var playerTimeLimit = 4;
 
 // token for retrieving elements in on the website by ID
 var $ = function(ID) {
@@ -14,12 +15,10 @@ var $ = function(ID) {
 
 // displays a symbol/number in the center of the screen
 function displaySymbol() {
-    console.log("This")
     $("displayImage1").style.animation = "";
     $("displayImage1").style.animationDuration = (animateSpeed + "s");
     var finishCount = setTimeout(function(){
         $("displayImage1").style.animation = "none";
-        console.log("Here");
     }, animateSpeed * 1000);
 };
 
@@ -37,6 +36,31 @@ function resolveAfterLoad(x) {
             resolve(x);
         }, 50);
     });
+}
+
+function playerInput(x) {
+    $("playerPortion").style.animation = "";
+    $("playerPortion").style.animationDuration = "2s";
+    $("playerPortion").style.animationDirection = "initial";
+    $("playerPortion").style.opacity = 1;
+    secondsLeft = playerTimeLimit;
+    $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
+    return new Promise(resolve => {
+        $("playerPortion").style.animation = "none";
+        var timeLimit = setInterval(() => {
+            if (secondsLeft < 0) {
+                lose = true;
+                clearInterval(timeLimit);
+                $("playerPortion").style.animation = "";
+                $("playerPortion").style.animationDirection = "reverse";
+                $("playerPortion").style.opacity = 0;
+                resolve(x);
+            } else {
+                $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
+            }
+        }, 1000);
+    });
+    
 }
 
 var buildSequence = function() {
@@ -60,7 +84,6 @@ var buildSequence = function() {
                 break;
         }
     }
-    $("displayImage1").src = symbolArray[0];
     
     return symbolArray;
 }
@@ -69,16 +92,38 @@ var buildSequence = function() {
 while (!lose) {
     var currentSequence = buildSequence();
     console.log(currentSequence);
-    animateSpeed = 0.5;
-    displaySequence(currentSequence);
-    async function displaySequence(currentSequence) {
+    animateSpeed = 1.2;
+    playerTimeLimit = numSymbols * 1;
+    gameSequence(currentSequence);
+    async function gameSequence(currentSequence) {
+        $("displayImage1").src = "../symbols/3.png";
+        await resolveAfterLoad("a");
+        displaySymbol();
+        await resolveAfterAnimation("a");
+        $("displayImage1").src = "../symbols/2.png";
+        await resolveAfterLoad("a");
+        displaySymbol();
+        await resolveAfterAnimation("a");
+        $("displayImage1").src = "../symbols/1.png";
+        await resolveAfterLoad("a");
+        displaySymbol();
+        await resolveAfterAnimation("a");
+        $("displayImage1").src = "../symbols/GO.png";
+        await resolveAfterLoad("a");
+        displaySymbol();
+        await resolveAfterAnimation("a");
+        animateSpeed = currentSpeed;
         for await (const currentSymbol of currentSequence) {
             $("displayImage1").src = currentSymbol;
             await resolveAfterLoad("a");
             displaySymbol();
             await resolveAfterAnimation("a");
         }
+        $("playerPortion").style.animation = "none";
+        await playerInput("a");
     }
+
+
     
     lose = true;
 }
