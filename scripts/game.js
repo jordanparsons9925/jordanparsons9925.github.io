@@ -31,6 +31,14 @@ function resolveAfterAnimation(x) {
     });
 }
 
+function resolveAfterLoad(x) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(x);
+        }, 50);
+    });
+}
+
 var buildSequence = function() {
     var symbolArray = [];
     for (var i = 0; i < numSymbols; i++) {
@@ -61,11 +69,12 @@ var buildSequence = function() {
 while (!lose) {
     var currentSequence = buildSequence();
     console.log(currentSequence);
-    animateSpeed = 1;
+    animateSpeed = 0.5;
     displaySequence(currentSequence);
     async function displaySequence(currentSequence) {
         for await (const currentSymbol of currentSequence) {
             $("displayImage1").src = currentSymbol;
+            await resolveAfterLoad("a");
             displaySymbol();
             await resolveAfterAnimation("a");
         }
