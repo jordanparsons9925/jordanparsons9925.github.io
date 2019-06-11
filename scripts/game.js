@@ -13,11 +13,23 @@ var $ = function(ID) {
 };
 
 // displays a symbol/number in the center of the screen
-var displaySymbol = function(displayPic) {
-    displayPic = "../symbols/" + displayPic + ".png";
-    $("displayImage").src = displayPic;
-    $("displayImage").style.animationDuration = (animateSpeed + "s");
+function displaySymbol() {
+    console.log("This")
+    $("displayImage1").style.animation = "";
+    $("displayImage1").style.animationDuration = (animateSpeed + "s");
+    var finishCount = setTimeout(function(){
+        $("displayImage1").style.animation = "none";
+        console.log("Here");
+    }, animateSpeed * 1000);
 };
+
+function resolveAfterAnimation(x) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(x);
+        }, animateSpeed * 1000 + 100);
+    });
+}
 
 var buildSequence = function() {
     var symbolArray = [];
@@ -25,22 +37,23 @@ var buildSequence = function() {
         genNum = Math.floor(Math.random() * (4 - 1) + 1); // from mozilla's javascript documentation
         switch (genNum) {
             case 1:
-                symbolArray.push("Club");
+                symbolArray.push("../symbols/Club.png");
                 break;
             case 2:
-                symbolArray.push("Diamond");
+                symbolArray.push("../symbols/Diamond.png");
                 break;
             case 3:
-                symbolArray.push("Heart");
+                symbolArray.push("../symbols/Heart.png");
                 break;
             case 4:
-                symbolArray.push("Spade");
+                symbolArray.push("../symbols/Spade.png");
                 break;
             default:
-                symbolArray.push("Club");
                 break;
         }
     }
+    $("displayImage1").src = symbolArray[0];
+    
     return symbolArray;
 }
 
@@ -48,16 +61,15 @@ var buildSequence = function() {
 while (!lose) {
     var currentSequence = buildSequence();
     console.log(currentSequence);
-    var i = 0;
-    animateSpeed = 2;
-    displaySymbol(currentSequence[i++]);
-    var countDown = setInterval(function(){
-        displaySymbol(currentSequence[i++]);
-    }, animateSpeed * 1000);
-    var finishCount = setTimeout(function(){
-        clearInterval(countDown);
-        $("displayImage").style.animationPlayState = "paused";
-    }, animateSpeed * 1000 * numSymbols);
-
+    animateSpeed = 1;
+    displaySequence(currentSequence);
+    async function displaySequence(currentSequence) {
+        for await (const currentSymbol of currentSequence) {
+            $("displayImage1").src = currentSymbol;
+            displaySymbol();
+            await resolveAfterAnimation("a");
+        }
+    }
+    
     lose = true;
 }

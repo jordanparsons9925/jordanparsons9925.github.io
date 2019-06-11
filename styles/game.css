@@ -7,28 +7,43 @@
     from {
         opacity: 0;
         width: 400px;
+        margin: 0 35%;
         margin-top: 200px;
     }
 
     50% {
         opacity: 1;
         width: 400px;
+        margin: 0 35%;
         margin-top: 200px;
     }
 
     to {
         opacity: 0;
         width: 50px;
+        margin: 0 48%;
         margin-top: 350px;
     }
 }
 
-#memoryPortion #displayImage {
+#memoryPortion #displayImage1 {
+    position: fixed;
     display: block;
-    margin: 0 auto;
+    margin: 0 35%;
+    margin-top: 200px;
+    opacity: 0;
+    width: 400px;
+    animation: none;
+    animation-name: imageShow;
+    animation-iteration-count: 1;
+}
+/*#memoryPortion #displayImage2 {
+    position: fixed;
+    display: block;
+    margin: 0 35%;
     margin-top: 200px;
     opacity: 0;
     width: 400px;
     animation-name: imageShow;
     animation-iteration-count: infinite;
-}
+}*/
