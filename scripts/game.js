@@ -122,7 +122,7 @@ function playerInput(x) {
 var buildSequence = function() {
     var symbolArray = [];
     for (var i = 0; i < numSymbols; i++) {
-        genNum = Math.floor(Math.random() * (4 - 1) + 1); // from mozilla's javascript documentation
+        genNum = Math.floor(Math.random() * (5 - 1) + 1); // from mozilla's javascript documentation
         switch (genNum) {
             case 1:
                 symbolArray.push("../symbols/Club.png");
@@ -137,6 +137,7 @@ var buildSequence = function() {
                 symbolArray.push("../symbols/Spade.png");
                 break;
             default:
+                symbolArray.push("../symbols/Spade.png");
                 break;
         }
     }
