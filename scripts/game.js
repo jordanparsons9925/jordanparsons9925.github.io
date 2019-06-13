@@ -1,13 +1,15 @@
 var lose = false; // is the user in a state of loss?
 var animateSpeed; // speed at which the animation will move
 var currentSpeed = 1.2; // the current game speed based on round progression
-var numSymbols = 10; // the number of symbols in the sequence
+var numSymbols = 3; // the number of symbols in the sequence
 var currentRound = 1; // the current round the user is on
 var totalSymbols = 4; // the total number of unique symbols ingame, can be adjusted
                       // to add more symbols beyond the main four
 var playerScore = 0; // the score that the player has
 var playerTimeLimit = 4;
-var playerInputArray;
+var currentSequence;
+var timeLimit;
+var playerHitNum;
 
 // token for retrieving elements in on the website by ID
 var $ = function(ID) {
@@ -39,47 +41,80 @@ function resolveAfterLoad(x) {
     });
 }
 
+function checkPlayerAnswer(playerAnswer) {
+    if (playerAnswer == currentSequence[playerHitNum] && playerHitNum == currentSequence.length - 1) {
+        endPlayer();
+        return true;
+    } else if (playerAnswer == currentSequence[playerHitNum]) {
+        playerHitNum++;
+        return false;
+    } else {
+        lose = true;
+        endPlayer();
+        return true;
+    }
+}
+
+function endPlayer() {
+    clearInterval(timeLimit);
+    $("playerPortion").style.animation = "";
+    $("playerPortion").style.animationDirection = "reverse";
+    $("playerPortion").style.opacity = 0;
+    $("ClubButton").disabled = true;
+    $("DiamondButton").disabled = true;
+    $("HeartButton").disabled = true;
+    $("SpadeButton").disabled = true;
+}
+
 // the function that resolves the player input promise and changes the result to win
 // or lose depending on how the player plays
 function playerInput(x) {
+    playerHitNum = 0;
+    $("displayImage1").style.display = "none";
     $("playerPortion").style.animation = "";
     $("playerPortion").style.animationDuration = "2s";
     $("playerPortion").style.animationDirection = "initial";
     $("playerPortion").style.opacity = 1;
 
-    $("ClubButton").removeAttribute("disabled");
-    $("ClubButton").onclick = function() {
-        $("timeLeft").innerText = "Club";
-    };
-    $("DiamondButton").removeAttribute("disabled");
-    $("DiamondButton").onclick = function() {
-        $("timeLeft").innerText = "Diamond";
-    };
-    $("HeartButton").removeAttribute("disabled");
-    $("HeartButton").onclick = function() {
-        $("timeLeft").innerText = "Heart";
-    };
-    $("SpadeButton").removeAttribute("disabled");
-    $("SpadeButton").onclick = function() {
-        $("timeLeft").innerText = "Spade";
-    };
+    $("ClubButton").disabled = false;
+    $("DiamondButton").disabled = false;
+    $("HeartButton").disabled = false;
+    $("SpadeButton").disabled = false;
+    
 
     secondsLeft = playerTimeLimit;
     $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
     return new Promise(resolve => {
+        $("ClubButton").onclick = function() {
+            if (checkPlayerAnswer("../symbols/Club.png")) {
+                resolve(x);
+            }
+        };
+        $("DiamondButton").onclick = function() {
+            if (checkPlayerAnswer("../symbols/Diamond.png")) {
+                resolve(x);
+            }
+        };
+        $("HeartButton").onclick = function() {
+            if (checkPlayerAnswer("../symbols/Heart.png")) {
+                resolve(x);
+            }
+        };
+        $("SpadeButton").onclick = function() {
+            if (checkPlayerAnswer("../symbols/Spade.png")) {
+                resolve(x);
+            }
+        };
         $("playerPortion").style.animation = "none";
-        /*var timeLimit = setInterval(() => {
+        timeLimit = setInterval(() => {
             if (secondsLeft < 0) {
                 lose = true;
-                clearInterval(timeLimit);
-                $("playerPortion").style.animation = "";
-                $("playerPortion").style.animationDirection = "reverse";
-                $("playerPortion").style.opacity = 0;
+                endPlayer();
                 resolve(x);
             } else {
                 $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
             }
-        }, 1000);*/
+        }, 1000);
     });
     
 }
@@ -110,14 +145,15 @@ var buildSequence = function() {
 }
 
 // main game loop
-while (!lose) {
-    var currentSequence = buildSequence();
-    playerInputArray = [];
-    console.log(currentSequence);
-    animateSpeed = 1.2;
-    playerTimeLimit = numSymbols * 1;
-    gameSequence(currentSequence);
-    async function gameSequence(currentSequence) {
+gameSequence();
+async function gameSequence() {
+    while (!lose) {
+        currentSequence = buildSequence();
+        console.log(currentSequence);
+        animateSpeed = 1.2;
+        playerTimeLimit = numSymbols * 1;
+        
+        $("displayImage1").style.display = "block";
         $("displayImage1").src = "../symbols/3.png";
         await resolveAfterLoad("a");
         displaySymbol();
@@ -141,11 +177,13 @@ while (!lose) {
             displaySymbol();
             await resolveAfterAnimation("a");
         }
+
         $("playerPortion").style.animation = "none";
         await playerInput("a");
+        if (!lose) {
+            console.log("Good job!");
+        } else {
+            console.log("You lose!");
+        }
     }
-
-
-    
-    lose = true;
 }
