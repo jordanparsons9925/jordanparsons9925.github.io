@@ -35,7 +35,7 @@ function resolveAfterLoad(x) {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(x);
-        }, 1);
+        }, 100);
     });
 }
 
