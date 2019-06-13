@@ -21,8 +21,23 @@
         <h2 id="startMessage">Click Anywhere to Continue!</h2>
         <script>
             var waitForFinish = setTimeout(function() {
-                document.getElementById("startMessage").style.animationName = "blinkingMsg";
                 window.onclick = function() { window.location.href = "game.html"; };
+
+                window.mobilecheck = function() {
+                    if (window.innerWidth <= 750) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                };
+
+                if (window.mobilecheck()) {
+                    var waitALittleLonger = setTimeout(function() {
+                        window.location.href = "game.html";
+                    }, 2000);
+                } else {
+                    document.getElementById("startMessage").style.animationName = "blinkingMsg";
+                }
             }, 2000);
         </script>
     </footer>

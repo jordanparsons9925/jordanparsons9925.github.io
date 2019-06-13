@@ -52,13 +52,28 @@
     font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     display: block;
-    margin: 0 16%;
+    margin: 0 17%;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
 }
 
 #playerPortion .symbolButton {
-    width: 32%;
+    background-size: cover;
+    width: 15vw;
+    width: 15vw;
+}
+
+#ClubButton {
+    background-image: url("../symbols/Club.png");
+}
+#DiamondButton {
+    background-image: url("../symbols/Diamond.png");
+}
+#HeartButton {
+    background-image: url("../symbols/Heart.png");
+}
+#SpadeButton {
+    background-image: url("../symbols/Spade.png");
 }
 
 #playerPortion h1 {

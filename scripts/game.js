@@ -1,12 +1,13 @@
 var lose = false; // is the user in a state of loss?
 var animateSpeed; // speed at which the animation will move
 var currentSpeed = 1.2; // the current game speed based on round progression
-var numSymbols = 10; // the number of symbols in the sequence
+var numSymbols = 1; // the number of symbols in the sequence
 var currentRound = 1; // the current round the user is on
 var totalSymbols = 4; // the total number of unique symbols ingame, can be adjusted
                       // to add more symbols beyond the main four
 var playerScore = 0; // the score that the player has
 var playerTimeLimit = 4;
+var playerInputArray;
 
 // token for retrieving elements in on the website by ID
 var $ = function(ID) {
@@ -22,6 +23,7 @@ function displaySymbol() {
     }, animateSpeed * 1000);
 };
 
+// these two functions resolve promises for timing the display of symbols onscreen
 function resolveAfterAnimation(x) {
     return new Promise(resolve => {
         setTimeout(() => {
@@ -29,7 +31,6 @@ function resolveAfterAnimation(x) {
         }, animateSpeed * 1000 + 100);
     });
 }
-
 function resolveAfterLoad(x) {
     return new Promise(resolve => {
         setTimeout(() => {
@@ -38,16 +39,36 @@ function resolveAfterLoad(x) {
     });
 }
 
+// the function that resolves the player input promise and changes the result to win
+// or lose depending on how the player plays
 function playerInput(x) {
     $("playerPortion").style.animation = "";
     $("playerPortion").style.animationDuration = "2s";
     $("playerPortion").style.animationDirection = "initial";
     $("playerPortion").style.opacity = 1;
+
+    $("ClubButton").removeAttribute("disabled");
+    $("ClubButton").onclick = function() {
+        $("timeLeft").innerText = "Club";
+    };
+    $("DiamondButton").removeAttribute("disabled");
+    $("DiamondButton").onclick = function() {
+        $("timeLeft").innerText = "Diamond";
+    };
+    $("HeartButton").removeAttribute("disabled");
+    $("HeartButton").onclick = function() {
+        $("timeLeft").innerText = "Heart";
+    };
+    $("SpadeButton").removeAttribute("disabled");
+    $("SpadeButton").onclick = function() {
+        $("timeLeft").innerText = "Spade";
+    };
+
     secondsLeft = playerTimeLimit;
     $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
     return new Promise(resolve => {
         $("playerPortion").style.animation = "none";
-        var timeLimit = setInterval(() => {
+        /*var timeLimit = setInterval(() => {
             if (secondsLeft < 0) {
                 lose = true;
                 clearInterval(timeLimit);
@@ -58,7 +79,7 @@ function playerInput(x) {
             } else {
                 $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
             }
-        }, 1000);
+        }, 1000);*/
     });
     
 }
@@ -91,6 +112,7 @@ var buildSequence = function() {
 // main game loop
 while (!lose) {
     var currentSequence = buildSequence();
+    playerInputArray = [];
     console.log(currentSequence);
     animateSpeed = 1.2;
     playerTimeLimit = numSymbols * 1;
