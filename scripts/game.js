@@ -1,6 +1,6 @@
 var lose = false; // is the user in a state of loss?
 var animateSpeed; // speed at which the animation will move
-var currentSpeed = 0.4; // the current game speed based on round progression
+var currentSpeed = 0.2; // the current game speed based on round progression
 var numSymbols = 10; // the number of symbols in the sequence
 var currentRound = 1; // the current round the user is on
 var totalSymbols = 4; // the total number of unique symbols ingame, can be adjusted
