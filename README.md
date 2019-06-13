@@ -3,9 +3,8 @@ repository for my memory game
 <br/>[click here to play!](http://jordanparsons9925.github.io)
 
 UP NEXT:
-
-- [ ] remove MATURASC.TTF, replace with full image logo
-- [ ] design GUI-A
-- [ ] design GUI-B
-- [ ] redesign suits with cleaner images (preferably vector)
+- [x] design GUI-A
+- [x] design GUI-B
 - [ ] develop game
+- [ ] remove MATURASC.TTF, replace with full image logo
+- [ ] redesign suits with cleaner images (preferably vector)
