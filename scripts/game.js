@@ -1,7 +1,7 @@
 var lose = false; // is the user in a state of loss?
 var animateSpeed; // speed at which the animation will move
 var currentSpeed = 1.2; // the current game speed based on round progression
-var numSymbols = 1; // the number of symbols in the sequence
+var numSymbols = 10; // the number of symbols in the sequence
 var currentRound = 1; // the current round the user is on
 var totalSymbols = 4; // the total number of unique symbols ingame, can be adjusted
                       // to add more symbols beyond the main four
@@ -35,7 +35,7 @@ function resolveAfterLoad(x) {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(x);
-        }, 50);
+        }, 1);
     });
 }
 
