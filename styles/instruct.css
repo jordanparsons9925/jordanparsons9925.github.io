@@ -7,7 +7,7 @@
     animation-duration: 2.5s;
     animation-name: instructFadeIn;
     opacity: 1;
-    margin: 125px 0 0 20px;
+    margin: 100px 0 0 20px;
     font-size: 100%;
     width: 90%;
 }
@@ -15,14 +15,14 @@
 @keyframes instructFadeIn {
     from {
         opacity: 0;
-        margin: 175px 0 0 20px;
+        margin: 150px 0 0 20px;
         font-size: 90%;
         width: 81%;
     }
 
     to {
         opacity: 1;
-        margin: 125px 0 0 20px;
+        margin: 100px 0 0 20px;
         font-size: 100%;
         width: 90%;
     }
