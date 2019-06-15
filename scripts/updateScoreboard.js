@@ -93,13 +93,14 @@ let req = new XMLHttpRequest();
 // the scoreboard is retrieved from JSONbin
 req.onreadystatechange = () => {
   if (req.readyState == XMLHttpRequest.DONE) {
+    console.log(req.responseText);
     var scoresObject = JSON.parse(req.responseText);
     scoresObject = getNewScores(scoresObject, playerName, playerScore);
     postNewScores(scoresObject);
   }
 };
 
-req.open("GET", "https://api.jsonbin.io/b/5d0572024f234842a5661da9", true);
+req.open("GET", "https://api.jsonbin.io/b/5d0574442808a77fb8096f53", true);
 req.setRequestHeader("secret-key", "$2a$10$i1CbSe3/MA5qTHWLYi10h.aFktmulIwidRSjv8d3pz1hVlCWQC476");
 req.send();
 
@@ -112,7 +113,7 @@ var postNewScores = function(scoresObject) {
         }
       };
       
-    req.open("PUT", "https://api.jsonbin.io/b/5d0572024f234842a5661da9", true);
+    req.open("PUT", "https://api.jsonbin.io/b/5d0574442808a77fb8096f53", true);
     req.setRequestHeader("Content-type", "application/json");
     req.setRequestHeader("secret-key", "$2a$10$i1CbSe3/MA5qTHWLYi10h.aFktmulIwidRSjv8d3pz1hVlCWQC476");
     req.setRequestHeader("versioning", "false");

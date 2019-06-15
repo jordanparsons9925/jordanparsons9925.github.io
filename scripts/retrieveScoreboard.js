@@ -22,6 +22,6 @@ req.onreadystatechange = () => {
   }
 };
 
-req.open("GET", "https://api.jsonbin.io/b/5d0572024f234842a5661da9", true);
+req.open("GET", "https://api.jsonbin.io/b/5d0574442808a77fb8096f53", true);
 req.setRequestHeader("secret-key", "$2a$10$i1CbSe3/MA5qTHWLYi10h.aFktmulIwidRSjv8d3pz1hVlCWQC476");
 req.send();
