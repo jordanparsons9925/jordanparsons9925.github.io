@@ -90,6 +90,7 @@ function playerInput(x) {
     // the time limit starts, and the player is tasked to hit the buttons to enter the
     // sequence
     secondsLeft = playerTimeLimit;
+    lastTimeLeft = secondsLeft + 1;
     $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
     return new Promise(resolve => {
         $("ClubButton").onclick = function() {
