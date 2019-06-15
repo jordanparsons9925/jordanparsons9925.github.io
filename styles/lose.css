@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#gameOverScreen {
+    display: block;
+    animation-duration: 2.5s;
+    animation-name: loseFadeIn;
+    opacity: 1;
+    margin: 200px 0 0 0;
+    font-size: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes loseFadeIn {
+    from {
+        opacity: 0;
+        font-size: 90%;
+    }
+
+    to {
+        opacity: 1;
+        font-size: 100%;
+    }
+}
+
+@keyframes boxFadeIn {
+    from {
+        width: 200px;
+        height: 50px;
+        font-size: 150%;
+    }
+
+    to {
+        width: 250px;
+        height: 80px;
+        font-size: 190%;
+    }
+}
+
+@keyframes buttonsFadeIn {
+    from {
+        width: 100px;
+        height: 50px;
+        font-size: 150%;
+    }
+    to {
+        width: 125px;
+        height: 80px;
+        font-size: 190%;
+    }
+}
+
+#gameOverScreen h1 {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 600%;
+    margin-bottom: 100px;
+}
+#gameOverScreen h2 {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    margin-bottom: 20px;
+}
+
+#playerName {
+    animation-duration: 2.5s;
+    animation-name: boxFadeIn;
+    width: 250px;
+    height: 80px;
+    font-size: 190%;
+    text-align: center;
+}
+
+.yesNo {
+    animation-duration: 2.5s;
+    animation-name: buttonsFadeIn;
+    width: 125px;
+    height: 80px;
+    font-size: 190%;
+}

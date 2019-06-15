@@ -28,6 +28,15 @@
     }
 }
 
+@keyframes instructFadeInMobile {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes instructSmooth {
     from {
         margin-bottom: 18px;
@@ -72,4 +81,18 @@
     text-align: center;
     margin-top: 100px;
     opacity: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    #instructions {
+        animation-name: instructFadeInMobile;
+    }
+    #instructions h1 {
+        margin-bottom: 50px;
+        font-size: 10vw;
+    }
+    #instructions h2 {
+        animation-name: none;
+        font-size: 5vw;
+    }
 }

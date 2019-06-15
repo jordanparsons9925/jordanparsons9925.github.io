@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#leaderboardScreen {
+    display: block;
+    animation-duration: 2.5s;
+    opacity: 1;
+    margin: 50px 0 0 0;
+    font-size: 0.9vw;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes boardFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blinkingMsg {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#leaderboardScreen h1 {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 600%;
+    margin-bottom: 10px;
+}
+#leaderboardScreen h2 {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    margin-bottom: 20px;
+}
+#tryMessage {
+    opacity: 0;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+#tryMessage a {
+    color: black;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+    #leaderboardScreen {
+        font-size: 45%;
+    }
+}

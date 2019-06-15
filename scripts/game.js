@@ -205,7 +205,8 @@ async function gameSequence() {
                 $("attributeDisplay").style.animationName = "showAttribute";
             }
         } else {
-            console.log("You lose!");
+            sessionStorage.setItem("playerScore", playerScore);
+            window.location.href = "lose.html";
         }
     }
 }

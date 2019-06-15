@@ -108,3 +108,13 @@ h2 {
     font-size: 2vw;
     margin: 0 18%;
 }
+
+@media only screen and (max-width: 768px) {
+    #playerPortion h1 {
+        font-size: 5vw;
+        margin: 0 6%;
+    }
+    h2 {
+        font-size: 5vw;
+    }
+}

@@ -48,3 +48,15 @@
     display: block;
     margin: 0 auto;
 }
+
+@media only screen and (max-width: 768px) {
+    #titleScreen h1 {
+        font-size: 25vw;
+    }
+    #titleScreen h2 {
+        font-size: 12vw;
+    }
+    #titleScreen img {
+        width: 70vw;
+    }
+}
