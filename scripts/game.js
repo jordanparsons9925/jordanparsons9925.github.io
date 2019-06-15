@@ -7,6 +7,7 @@ var totalSymbols = 4; // the total number of unique symbols ingame, can be adjus
                       // to add more symbols beyond the main four
 var playerScore = 0; // the score that the player has
 var playerTimeLimit = 4;
+var lastTimeLeft = 0;
 var currentSequence;
 var timeLimit;
 var playerHitNum;
@@ -113,6 +114,7 @@ function playerInput(x) {
                 resolve(x);
             } else {
                 $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
+                lastTimeLeft = secondsLeft + 1;
             }
         }, 1000);
     });
@@ -151,7 +153,7 @@ async function gameSequence() {
     while (!lose) {
         currentSequence = buildSequence();
         console.log(currentSequence);
-        animateSpeed = 1.2;
+        animateSpeed = 0.8;
         playerTimeLimit = numSymbols * 1;
         
         $("displayImage1").style.display = "block";
@@ -172,6 +174,9 @@ async function gameSequence() {
         displaySymbol();
         await resolveAfterAnimation("a");
         animateSpeed = currentSpeed;
+
+        $("attributeDisplay").style.animation = "none";
+
         for await (const currentSymbol of currentSequence) {
             $("displayImage1").src = currentSymbol;
             await resolveAfterLoad("a");
@@ -183,6 +188,22 @@ async function gameSequence() {
         await playerInput("a");
         if (!lose) {
             console.log("Good job!");
+            playerScore += lastTimeLeft;
+            $("scoreDisplay").innerText = "Score: " + playerScore;
+            if (currentRound++ % 5 == 0) {
+                currentSpeed = 1.2;
+                numSymbols += 1;
+                $("attributeDisplay").innerText = "+ Increased Symbols";
+                $("attributeDisplay").style.color = "green";
+                $("attributeDisplay").style.animation = "";
+                $("attributeDisplay").style.animationName = "showAttribute";
+            } else {
+                currentSpeed -= .2;
+                $("attributeDisplay").innerText = "+ Increased Speed";
+                $("attributeDisplay").style.color = "blue";
+                $("attributeDisplay").style.animation = "";
+                $("attributeDisplay").style.animationName = "showAttribute";
+            }
         } else {
             console.log("You lose!");
         }
