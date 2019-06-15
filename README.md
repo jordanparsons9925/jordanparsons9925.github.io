@@ -5,6 +5,5 @@ repository for my memory game
 UP NEXT:
 - [x] design GUI-A
 - [x] design GUI-B
-- [ ] develop game
-- [ ] remove MATURASC.TTF, replace with full image logo
-- [ ] redesign suits with cleaner images (preferably vector)
+- [x] develop game
+- [ ] incorporate online leaderboard
