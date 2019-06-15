@@ -21,8 +21,12 @@
         <h2 id="startMessage">Click Anywhere to Continue!</h2>
         <script>
             var waitForFinish = setTimeout(function() {
-                window.onclick = function() { window.location.href = "game.html"; };
 
+                // sets up the screen for clicks, leading to the game page
+                window.onclick = function() { window.location.href = "game.html"; };
+                
+                // function that checks if the user is on mobile, and thus won't be able
+                // to click
                 window.mobilecheck = function() {
                     if (window.innerWidth <= 768) {
                         return true;
@@ -31,11 +35,14 @@
                     }
                 };
 
+                // if the user cannot click, the site will automatically move to the next page after a few seconds
                 if (window.mobilecheck()) {
                     var waitALittleLonger = setTimeout(function() {
                         window.location.href = "game.html";
-                    }, 2000);
+                    }, 5000);
                 } else {
+
+                    // the click prompt is displayed
                     document.getElementById("startMessage").style.animationName = "blinkingMsg";
                 }
             }, 2000);

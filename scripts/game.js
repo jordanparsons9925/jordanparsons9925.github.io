@@ -42,6 +42,8 @@ function resolveAfterLoad(x) {
     });
 }
 
+// this function checks if the player's answer is currently correct, and sets the lose variable to true
+// if incorrect
 function checkPlayerAnswer(playerAnswer) {
     if (playerAnswer == currentSequence[playerHitNum] && playerHitNum == currentSequence.length - 1) {
         endPlayer();
@@ -56,6 +58,7 @@ function checkPlayerAnswer(playerAnswer) {
     }
 }
 
+// this function ends the player's ability to have control ingame
 function endPlayer() {
     clearInterval(timeLimit);
     $("playerPortion").style.animation = "";
@@ -71,6 +74,8 @@ function endPlayer() {
 // or lose depending on how the player plays
 function playerInput(x) {
     playerHitNum = 0;
+
+    // the center symbol is stopped from playing, and the player is given the controls of the game
     $("displayImage1").style.display = "none";
     $("playerPortion").style.animation = "";
     $("playerPortion").style.animationDuration = "2s";
@@ -82,7 +87,8 @@ function playerInput(x) {
     $("HeartButton").disabled = false;
     $("SpadeButton").disabled = false;
     
-
+    // the time limit starts, and the player is tasked to hit the buttons to enter the
+    // sequence
     secondsLeft = playerTimeLimit;
     $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
     return new Promise(resolve => {
@@ -121,6 +127,7 @@ function playerInput(x) {
     
 }
 
+// this function builds a new, randomized sequence of symbols and returns the array
 var buildSequence = function() {
     var symbolArray = [];
     for (var i = 0; i < numSymbols; i++) {
@@ -152,10 +159,10 @@ gameSequence();
 async function gameSequence() {
     while (!lose) {
         currentSequence = buildSequence();
-        console.log(currentSequence);
         animateSpeed = 0.8;
         playerTimeLimit = numSymbols * 1;
         
+        // the countdown is shown
         $("displayImage1").style.display = "block";
         $("displayImage1").src = "../symbols/3.png";
         await resolveAfterLoad("a");
@@ -177,6 +184,7 @@ async function gameSequence() {
 
         $("attributeDisplay").style.animation = "none";
 
+        // a for loop that displays all of the symbols in the sequence
         for await (const currentSymbol of currentSequence) {
             $("displayImage1").src = currentSymbol;
             await resolveAfterLoad("a");
@@ -185,11 +193,20 @@ async function gameSequence() {
         }
 
         $("playerPortion").style.animation = "none";
+
+        // the program awaits on player input before dealing with the results
         await playerInput("a");
         if (!lose) {
-            console.log("Good job!");
+            
+            // if the player won, their score increases based on time left
             playerScore += lastTimeLeft;
             $("scoreDisplay").innerText = "Score: " + playerScore;
+
+            // depending on current round, either the speed increases, or
+            // the sequence is increased with the speed reset
+            
+            // a temporary message is displayed on top of the screen
+            // to let the user know what challenge is given to them
             if (currentRound++ % 5 == 0) {
                 currentSpeed = 1.2;
                 numSymbols += 1;
@@ -205,6 +222,9 @@ async function gameSequence() {
                 $("attributeDisplay").style.animationName = "showAttribute";
             }
         } else {
+
+            // if the game is lost, the score is saved to session storage
+            // and the window moves to the lose page
             sessionStorage.setItem("playerScore", playerScore);
             window.location.href = "lose.html";
         }

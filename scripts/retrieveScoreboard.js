@@ -2,6 +2,7 @@
 // www.jsonbin.io
 let req = new XMLHttpRequest();
 
+// the scoreboard is displayed from the retrieved JSON
 req.onreadystatechange = () => {
   if (req.readyState == XMLHttpRequest.DONE) {
     var scoresObject = JSON.parse(req.responseText);
