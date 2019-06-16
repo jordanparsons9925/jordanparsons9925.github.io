@@ -1,3 +1,5 @@
+var newScore = true;
+
 // this function retrieves the numerical score value from the scoreboard
 var getCurrentScore = function(currentScore) {
   var scoreArray = currentScore.split("-");
@@ -81,6 +83,8 @@ var getNewScores = function(scoresObject, playerName, playerScore) {
     
   } else if (playerScore > getCurrentScore(scoresObject.scores.tenth)) {
     scoresObject.scores.tenth = playerName + " - " + playerScore;
+  } else {
+    newScore = false;
   }
   return scoresObject;
 }
@@ -96,7 +100,12 @@ req.onreadystatechange = () => {
     console.log(req.responseText);
     var scoresObject = JSON.parse(req.responseText);
     scoresObject = getNewScores(scoresObject, playerName, playerScore);
-    postNewScores(scoresObject);
+    if (newScore) {
+      postNewScores(scoresObject);
+    } else {
+      sessionStorage.clear();
+      window.location.href = "scoreboard.html";
+    }
   }
 };
 
