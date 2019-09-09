@@ -74,8 +74,6 @@
 #startMessage {
     display: block;
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    text-decoration: none;
     animation-duration: 0.5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
@@ -83,6 +81,11 @@
     text-align: center;
     margin-top: 100px;
     opacity: 0;
+}
+
+#startMessage a {
+    color: black;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 768px) {
