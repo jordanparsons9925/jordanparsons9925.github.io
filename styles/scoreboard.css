@@ -49,11 +49,11 @@
     animation-duration: 0.5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
-    font-size: 250%;
 }
 #tryMessage a {
     color: black;
     text-decoration: none;
+    font-size: 250%;
 }
 
 @media only screen and (max-width: 768px) {
