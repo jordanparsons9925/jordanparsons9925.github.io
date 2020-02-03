@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
     <title>Symbol Memory 2!</title>
-    <link rel="stylesheet" href="../styles/instruct.css">
+    <link rel="stylesheet" href="styles/instruct.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -21,14 +21,12 @@
         <h2 id="startMessage"><a>Click Here to Continue!</a></h2>
         <script>
             var waitForFinish = setTimeout(function() {
-
                 // the click prompt is displayed
                 document.getElementById("startMessage").style.animationName = "blinkingMsg";
 		
-		// sets up the start message for clicks
-		document.getElementById("startMessage").firstChild.href = "game.html";
-		    
-            }, 2000);
+		        // sets up the start message for clicks
+		        document.getElementById("startMessage").firstChild.href = "game.html";
+		    }, 2000);
         </script>
     </footer>
 </body>

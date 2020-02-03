@@ -94,22 +94,22 @@ function playerInput(x) {
     $("timeLeft").innerText = "Seconds Left: " + secondsLeft--;
     return new Promise(resolve => {
         $("ClubButton").onclick = function() {
-            if (checkPlayerAnswer("../symbols/Club.png")) {
+            if (checkPlayerAnswer("symbols/Club.png")) {
                 resolve(x);
             }
         };
         $("DiamondButton").onclick = function() {
-            if (checkPlayerAnswer("../symbols/Diamond.png")) {
+            if (checkPlayerAnswer("symbols/Diamond.png")) {
                 resolve(x);
             }
         };
         $("HeartButton").onclick = function() {
-            if (checkPlayerAnswer("../symbols/Heart.png")) {
+            if (checkPlayerAnswer("symbols/Heart.png")) {
                 resolve(x);
             }
         };
         $("SpadeButton").onclick = function() {
-            if (checkPlayerAnswer("../symbols/Spade.png")) {
+            if (checkPlayerAnswer("symbols/Spade.png")) {
                 resolve(x);
             }
         };
@@ -135,19 +135,19 @@ var buildSequence = function() {
         genNum = Math.floor(Math.random() * (5 - 1) + 1); // from mozilla's javascript documentation
         switch (genNum) {
             case 1:
-                symbolArray.push("../symbols/Club.png");
+                symbolArray.push("symbols/Club.png");
                 break;
             case 2:
-                symbolArray.push("../symbols/Diamond.png");
+                symbolArray.push("symbols/Diamond.png");
                 break;
             case 3:
-                symbolArray.push("../symbols/Heart.png");
+                symbolArray.push("symbols/Heart.png");
                 break;
             case 4:
-                symbolArray.push("../symbols/Spade.png");
+                symbolArray.push("symbols/Spade.png");
                 break;
             default:
-                symbolArray.push("../symbols/Spade.png");
+                symbolArray.push("symbols/Spade.png");
                 break;
         }
     }
@@ -165,19 +165,19 @@ async function gameSequence() {
         
         // the countdown is shown
         $("displayImage1").style.display = "block";
-        $("displayImage1").src = "../symbols/3.png";
+        $("displayImage1").src = "symbols/3.png";
         await resolveAfterLoad("a");
         displaySymbol();
         await resolveAfterAnimation("a");
-        $("displayImage1").src = "../symbols/2.png";
+        $("displayImage1").src = "symbols/2.png";
         await resolveAfterLoad("a");
         displaySymbol();
         await resolveAfterAnimation("a");
-        $("displayImage1").src = "../symbols/1.png";
+        $("displayImage1").src = "symbols/1.png";
         await resolveAfterLoad("a");
         displaySymbol();
         await resolveAfterAnimation("a");
-        $("displayImage1").src = "../symbols/GO.png";
+        $("displayImage1").src = "symbols/GO.png";
         await resolveAfterLoad("a");
         displaySymbol();
         await resolveAfterAnimation("a");
