@@ -1,6 +1,6 @@
 # jordanparsons9925.github.io
 repository for my memory game
-<br/>[click here to play!](http://jordanparsons9925.github.io/symbol-memory)
+<br/>[click here to play!](http://jordanparsons9925.github.io/symbol-memory/index.html)
 
 UP NEXT:
 - [x] design GUI-A
