@@ -13,11 +13,7 @@
 
 body {
     display: block;
-    animation-duration: 4s;
-    animation-name: siteFade;
-    opacity: 1;
     font-family: Agency FB Regular;
-    display: block;
     text-align: left;
     margin: 2vw;
 }
@@ -36,35 +32,107 @@ h1 {
     font-family: Agency FB Bold;
     font-size: 6vw;
     margin-bottom: 10vw;
+    animation-duration: 2s;
+    animation-name: siteFade;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
-h2 {
+#list_block {
+    float: left;
+}
+
+#list_block h2 {
     font-size: 5vw;
     margin-bottom: 2vw;
+    animation-delay: 0.5s;
+    animation-duration: 2s;
+    animation-name: siteFade;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 #project_list {
     font-size: 3vw;
     list-style-type: none;
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-name: siteFade;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 #project_list li {
     margin-bottom: 1vw;
 }
 
-#project_list li a {
-    color: black;
+#project_list li:hover {
+    cursor: pointer;
 }
+
+#project_description {
+    margin-left: 20vw;
+    margin-bottom: 1vw;
+    border: 5px solid black;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+#project_description h2 {
+    text-align: right;
+    font-size: 5vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    margin-right: 2vw;
+}
+
+#project_text {
+    margin: 2vw;
+    font-size: 2vw;
+}
+#project_pics {
+    width: 100%;
+}
+
+#project_pics img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
 @media only screen and (max-width: 768px) {
     h1 {
         font-size: 285%;
     }
     
-    h2 {
+    #list_block h2 {
         font-size: 245%;
     }
-    
+
+    #list_block {
+        float: none;
+    }
+
     #project_list {
         font-size: 145%;
+    }
+
+    #project_description {
+        margin-left: 0;
+    }
+
+    #project_description h2 {
+        text-align: left;
+        font-size: 245%;
+    }
+
+    #project_text {
+        font-size: 100%;
+    }
+
+    #project_pics img {
+        width: 100%;
     }
 }
