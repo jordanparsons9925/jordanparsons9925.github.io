@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Agency FB Regular';
+    src: url('../fonts/AGENCYR.TTF') format('truetype');
+}
+@font-face {
+    font-family: 'Agency FB Bold';
+    src: url('../fonts/AGENCYB.TTF') format('truetype');
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: block;
+    animation-duration: 4s;
+    animation-name: siteFade;
+    opacity: 1;
+    font-family: Agency FB Regular;
+    display: block;
+    text-align: left;
+    margin: 2vw;
+}
+
+@keyframes siteFade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-family: Agency FB Bold;
+    font-size: 6vw;
+    margin-bottom: 10vw;
+}
+
+h2 {
+    font-size: 5vw;
+    margin-bottom: 2vw;
+}
+
+#project_list {
+    font-size: 3vw;
+    list-style-type: none;
+}
+
+#project_list li {
+    margin-bottom: 1vw;
+}
+
+#project_list li a {
+    color: black;
+}
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 285%;
+    }
+    
+    h2 {
+        font-size: 245%;
+    }
+    
+    #project_list {
+        font-size: 145%;
+    }
+}
