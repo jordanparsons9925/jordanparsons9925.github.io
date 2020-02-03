@@ -1,3 +1,2 @@
 # jordanparsons9925.github.io
-repository for my memory game
-<br/>[click here to play!](http://jordanparsons9925.github.io/symbol-memory)
+repository for my school projects
