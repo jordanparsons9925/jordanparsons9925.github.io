@@ -2,4 +2,4 @@
 repository for my school projects
 
 
-[click here](jordanparsons9925.github.io) to visit!
+[click here](https://jordanparsons9925.github.io) to visit!
