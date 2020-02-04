@@ -22,9 +22,8 @@ if (mainFadedYet) {
     sessionStorage.setItem("mainFadedYet", true);
 }
 
-console.log(projDisplay);
 if (projDisplay != null) {
-    displayProject(projDisplay);
+    displayProject(parseInt(projDisplay));
 }
 
 function displayProject(projectName) {
