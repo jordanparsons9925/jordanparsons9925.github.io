@@ -3,6 +3,7 @@ var projectText = document.getElementById("project_text");
 var projectPics = document.getElementById("project_pics");
 var mainFadedYet = sessionStorage.getItem("mainFadedYet");
 var projDisplay = sessionStorage.getItem("projDisplay");
+var animationName = "siteFade";
 
 document.getElementById("symbol_memory").addEventListener("click", function() {displayProject(0)});
 document.getElementById("symbol_memory").addEventListener("touchend", function() {displayProject(0)});
@@ -23,13 +24,13 @@ if (mainFadedYet) {
 }
 
 if (projDisplay != null) {
-    document.getElementById("project_description").style.animationDuration = 0s;
+    animationName = "";
     displayProject(parseInt(projDisplay));
     document.getElementById("project_description").style.opacity = 1;
 }
 
 function displayProject(projectName) {
-    document.getElementById("project_description").style.animationName = "siteFade";
+    document.getElementById("project_description").style.animationName = animationName;
     switch (projectName) {
         case 0:
             projectTitle.innerText = "symbol memory";
