@@ -23,7 +23,9 @@ if (mainFadedYet) {
 }
 
 if (projDisplay != null) {
+    document.getElementById("project_description").style.animationSpeed = 0;
     displayProject(parseInt(projDisplay));
+    document.getElementById("project_description").style.opacity = 1;
 }
 
 function displayProject(projectName) {
