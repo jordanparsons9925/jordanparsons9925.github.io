@@ -34,7 +34,7 @@ function displayProject(projectName) {
         case 0:
             projectTitle.innerText = "symbol memory";
             projectText.innerText = 
-                "My first main school project. This one was an android app developed in thunkable. It was... challenging to get working right without extensive rewrites. Even then, the way the software worked ended up making the display of symbols erratic, causing players to lose pretty easily. ";
+                "My first main school project. This one was an android app developed in Thunkable. It was... challenging to get working right without extensive rewrites. Even then, the way the software worked ended up making the display of symbols erratic, causing players to lose pretty easily. ";
             projectText.innerHTML += "<a href=\"https://x.thunkable.com/copy/8312483dee6e057e48713f83019536d2\">Click here</a> to take a look!";
             projectPics.innerHTML = "<img src=\"symbol-memory/images/Title Logo.png\"></img>";
             sessionStorage.setItem("projDisplay", 0);
