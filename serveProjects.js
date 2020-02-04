@@ -26,7 +26,6 @@ if (mainFadedYet) {
 if (projDisplay != null) {
     animationName = "";
     displayProject(parseInt(projDisplay));
-    document.getElementById("project_description").style.opacity = 1;
 }
 
 function displayProject(projectName) {
@@ -59,4 +58,5 @@ function displayProject(projectName) {
         default:
             break;
     }
+    document.getElementById("project_description").style.opacity = 1;
 }
