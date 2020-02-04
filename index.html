@@ -26,5 +26,20 @@
             </div>
         </aside>
     </main>
+	<!-- code for preloading images from https://perishablepress.com/3-ways-preload-images-css-javascript-ajax/ -->
+        <div class="hidden">
+            <script type="text/javascript">
+                    var images = new Array();
+                    function preload() {
+                        for (i = 0; i < preload.arguments.length; i++) {
+                            images[i] = new Image();
+                            images[i].src = preload.arguments[i];
+                        }
+                    }
+                    preload(
+                        "symbol-memory/images/Club.png",
+                    );
+            </script>
+        </div>
 </body>
 </html>
