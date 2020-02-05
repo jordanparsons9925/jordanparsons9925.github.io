@@ -112,6 +112,12 @@ h1 {
     width: 70%;
 }
 
+@media only screen and (max-width: 900px) {
+    #project_list li {
+    	margin-bottom: 3vw;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     h1 {
         font-size: 285%;
@@ -119,6 +125,7 @@ h1 {
     
     #list_block h2 {
         font-size: 245%;
+	margin-bottom: 4vw;
     }
 
     #list_block {
@@ -127,6 +134,9 @@ h1 {
 
     #project_list {
         font-size: 145%;
+    }
+    #project_list li {
+    	margin-bottom: 4vw;
     }
 
     #project_description {
