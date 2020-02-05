@@ -94,6 +94,8 @@ h1 {
     margin-top: 2vw;
     margin-bottom: 2vw;
     margin-right: 2vw;
+    margin-left: 2vw;
+    width: 100%;
 }
 
 #project_text {
