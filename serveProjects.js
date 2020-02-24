@@ -50,8 +50,8 @@ function displayProject(projectName) {
         case 2:
             projectTitle.innerText = "learnin' lizards";
             projectText.innerText = 
-                "My third main school project. It was developed in Unity, using C# scripts, and exported to WebGL. Learnin' Lizards is my first attempt at both a Unity project, and a Machine Learning project. After a long time, and various generations, the lizard will eventually learn to walk and complete the course. When it's finished, you will be able to try it out ";
-            projectText.innerHTML += "<a>here</a>!";
+                "My third main school project. It was developed in Unity, using C# scripts, and exported to WebGL. Learnin' Lizards is my first attempt at both a Unity project, and a Machine Learning project. After a long time, and various generations, the lizard will eventually learn to walk and complete the course. Take a look, ";
+            projectText.innerHTML += "<a href=\"https://jordanparsons9925.github.io/lizards\">here!</a>";
             projectPics.innerHTML = "";
             sessionStorage.setItem("projDisplay", 2);
             break;
