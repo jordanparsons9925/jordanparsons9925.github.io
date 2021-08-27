@@ -58,7 +58,7 @@ function displayProject(projectName) {
             projectTitle.innerText = "boxy boy";
             projectText.innerText = 
                 "My fourth main school project. Developed in JavaScript using HTML5 Canvas, Boxy Boy is a simple platformer with wall-jumping! Take a look, ";
-            projectText.innerHTML += "<a href=\"https://jordanparsons9925.github.io/lizards\">here!</a>";
+            projectText.innerHTML += "<a href=\"https://jordanparsons9925.github.io/box-boy\">here!</a>";
             projectPics.innerHTML = "";
             break;
         default:
