@@ -9,80 +9,80 @@ var getCurrentScore = function(currentScore) {
 // this function generates a new score object based on whether the
 // player has made it or not
 var getNewScores = function(scoresObject, playerName, playerScore) {
-  if (playerScore > getCurrentScore(scoresObject.scores.first)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = scoresObject.scores.sixth;
-    scoresObject.scores.sixth = scoresObject.scores.fifth;
-    scoresObject.scores.fifth = scoresObject.scores.fourth;
-    scoresObject.scores.fourth = scoresObject.scores.third;
-    scoresObject.scores.third = scoresObject.scores.second;
-    scoresObject.scores.second = scoresObject.scores.first;
-    scoresObject.scores.first = playerName + " - " + playerScore;
+  if (playerScore > getCurrentScore(scoresObject.record.scores.first)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = scoresObject.record.scores.sixth;
+    scoresObject.record.scores.sixth = scoresObject.record.scores.fifth;
+    scoresObject.record.scores.fifth = scoresObject.record.scores.fourth;
+    scoresObject.record.scores.fourth = scoresObject.record.scores.third;
+    scoresObject.record.scores.third = scoresObject.record.scores.second;
+    scoresObject.record.scores.second = scoresObject.record.scores.first;
+    scoresObject.record.scores.first = playerName + " - " + playerScore;
 
-  } else if (playerScore > getCurrentScore(scoresObject.scores.second)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = scoresObject.scores.sixth;
-    scoresObject.scores.sixth = scoresObject.scores.fifth;
-    scoresObject.scores.fifth = scoresObject.scores.fourth;
-    scoresObject.scores.fourth = scoresObject.scores.third;
-    scoresObject.scores.third = scoresObject.scores.second;
-    scoresObject.scores.second = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.second)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = scoresObject.record.scores.sixth;
+    scoresObject.record.scores.sixth = scoresObject.record.scores.fifth;
+    scoresObject.record.scores.fifth = scoresObject.record.scores.fourth;
+    scoresObject.record.scores.fourth = scoresObject.record.scores.third;
+    scoresObject.record.scores.third = scoresObject.record.scores.second;
+    scoresObject.record.scores.second = playerName + " - " + playerScore;
 
-  } else if (playerScore > getCurrentScore(scoresObject.scores.third)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = scoresObject.scores.sixth;
-    scoresObject.scores.sixth = scoresObject.scores.fifth;
-    scoresObject.scores.fifth = scoresObject.scores.fourth;
-    scoresObject.scores.fourth = scoresObject.scores.third;
-    scoresObject.scores.third = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.third)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = scoresObject.record.scores.sixth;
+    scoresObject.record.scores.sixth = scoresObject.record.scores.fifth;
+    scoresObject.record.scores.fifth = scoresObject.record.scores.fourth;
+    scoresObject.record.scores.fourth = scoresObject.record.scores.third;
+    scoresObject.record.scores.third = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.fourth)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = scoresObject.scores.sixth;
-    scoresObject.scores.sixth = scoresObject.scores.fifth;
-    scoresObject.scores.fifth = scoresObject.scores.fourth;
-    scoresObject.scores.fourth = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.fourth)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = scoresObject.record.scores.sixth;
+    scoresObject.record.scores.sixth = scoresObject.record.scores.fifth;
+    scoresObject.record.scores.fifth = scoresObject.record.scores.fourth;
+    scoresObject.record.scores.fourth = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.fifth)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = scoresObject.scores.sixth;
-    scoresObject.scores.sixth = scoresObject.scores.fifth;
-    scoresObject.scores.fifth = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.fifth)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = scoresObject.record.scores.sixth;
+    scoresObject.record.scores.sixth = scoresObject.record.scores.fifth;
+    scoresObject.record.scores.fifth = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.sixth)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = scoresObject.scores.sixth;
-    scoresObject.scores.sixth = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.sixth)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = scoresObject.record.scores.sixth;
+    scoresObject.record.scores.sixth = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.seventh)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = scoresObject.scores.seventh;
-    scoresObject.scores.seventh = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.seventh)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = scoresObject.record.scores.seventh;
+    scoresObject.record.scores.seventh = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.eighth)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = scoresObject.scores.eighth;
-    scoresObject.scores.eighth = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.eighth)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = scoresObject.record.scores.eighth;
+    scoresObject.record.scores.eighth = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.ninth)) {
-    scoresObject.scores.tenth = scoresObject.scores.ninth;
-    scoresObject.scores.ninth = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.ninth)) {
+    scoresObject.record.scores.tenth = scoresObject.record.scores.ninth;
+    scoresObject.record.scores.ninth = playerName + " - " + playerScore;
     
-  } else if (playerScore > getCurrentScore(scoresObject.scores.tenth)) {
-    scoresObject.scores.tenth = playerName + " - " + playerScore;
+  } else if (playerScore > getCurrentScore(scoresObject.record.scores.tenth)) {
+    scoresObject.record.scores.tenth = playerName + " - " + playerScore;
   } else {
     newScore = false;
   }
@@ -97,7 +97,6 @@ let req = new XMLHttpRequest();
 // the scoreboard is retrieved from JSONbin
 req.onreadystatechange = () => {
   if (req.readyState == XMLHttpRequest.DONE) {
-    console.log(req.responseText);
     var scoresObject = JSON.parse(req.responseText);
     scoresObject = getNewScores(scoresObject, playerName, playerScore);
     if (newScore) {

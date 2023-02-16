@@ -6,16 +6,16 @@ let req = new XMLHttpRequest();
 req.onreadystatechange = () => {
   if (req.readyState == XMLHttpRequest.DONE) {
     var scoresObject = JSON.parse(req.responseText);
-    document.getElementById("firstScore").innerHTML = "1<sup>st</sup> Place - " + scoresObject.scores.first;
-    document.getElementById("secondScore").innerHTML = "2<sup>nd</sup> Place - " + scoresObject.scores.second;
-    document.getElementById("thirdScore").innerHTML = "3<sup>rd</sup> Place - " + scoresObject.scores.third;
-    document.getElementById("fourthScore").innerHTML = "4<sup>th</sup> Place - " + scoresObject.scores.fourth;
-    document.getElementById("fifthScore").innerHTML = "5<sup>th</sup> Place - " + scoresObject.scores.fifth;
-    document.getElementById("sixthScore").innerHTML = "6<sup>th</sup> Place - " + scoresObject.scores.sixth;
-    document.getElementById("seventhScore").innerHTML = "7<sup>th</sup> Place - " + scoresObject.scores.seventh;
-    document.getElementById("eighthScore").innerHTML = "8<sup>th</sup> Place - " + scoresObject.scores.eighth;
-    document.getElementById("ninthScore").innerHTML = "9<sup>th</sup> Place - " + scoresObject.scores.ninth;
-    document.getElementById("tenthScore").innerHTML = "10<sup>th</sup> Place - " + scoresObject.scores.tenth;
+    document.getElementById("firstScore").innerHTML = "1<sup>st</sup> Place - " + scoresObject.record.scores.first;
+    document.getElementById("secondScore").innerHTML = "2<sup>nd</sup> Place - " + scoresObject.record.scores.second;
+    document.getElementById("thirdScore").innerHTML = "3<sup>rd</sup> Place - " + scoresObject.record.scores.third;
+    document.getElementById("fourthScore").innerHTML = "4<sup>th</sup> Place - " + scoresObject.record.scores.fourth;
+    document.getElementById("fifthScore").innerHTML = "5<sup>th</sup> Place - " + scoresObject.record.scores.fifth;
+    document.getElementById("sixthScore").innerHTML = "6<sup>th</sup> Place - " + scoresObject.record.scores.sixth;
+    document.getElementById("seventhScore").innerHTML = "7<sup>th</sup> Place - " + scoresObject.record.scores.seventh;
+    document.getElementById("eighthScore").innerHTML = "8<sup>th</sup> Place - " + scoresObject.record.scores.eighth;
+    document.getElementById("ninthScore").innerHTML = "9<sup>th</sup> Place - " + scoresObject.record.scores.ninth;
+    document.getElementById("tenthScore").innerHTML = "10<sup>th</sup> Place - " + scoresObject.record.scores.tenth;
 
     document.getElementById("leaderboardScreen").style.animationName = "boardFadeIn";
     document.getElementById("leaderboardScreen").style.opacity = 1;
