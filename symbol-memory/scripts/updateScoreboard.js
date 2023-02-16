@@ -109,7 +109,7 @@ req.onreadystatechange = () => {
   }
 };
 
-req.open("GET", "https://api.jsonbin.io/b/5d0574442808a77fb8096f53", true);
+req.open("GET", "https://api.jsonbin.io/v3/b/5d0574442808a77fb8096f53/latest", true);
 req.setRequestHeader("X-Master-Key", "$2a$10$i1CbSe3/MA5qTHWLYi10h.aFktmulIwidRSjv8d3pz1hVlCWQC476");
 req.send();
 
@@ -122,7 +122,7 @@ var postNewScores = function(scoresObject) {
         }
       };
       
-    req.open("PUT", "https://api.jsonbin.io/b/5d0574442808a77fb8096f53", true);
+    req.open("PUT", "https://api.jsonbin.io/v3/b/5d0574442808a77fb8096f53", true);
     req.setRequestHeader("Content-type", "application/json");
     req.setRequestHeader("X-Master-Key", "$2a$10$i1CbSe3/MA5qTHWLYi10h.aFktmulIwidRSjv8d3pz1hVlCWQC476");
     req.setRequestHeader("X-Bin-Versioning", "false");
